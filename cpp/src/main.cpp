@@ -2,19 +2,13 @@
 #include <matrix.hpp>
 using namespace mt;
 int main() {
-    MMatrix<double> A(2, 3);
-    A(0, 0) = 1;
-    A(0, 1) = 2;
-    A(0, 2) = 3;
-    A(1, 0) = 4;
-    A(1, 1) = 5;
-    A(1, 2) = 6;
-    // A.print();
-    for (int i = 0; i < 2; i++) {
-        for (int j = 0; j < 3; j++) {
-            std::cout << A(i, j) << " ";
-        }
-        std::cout << std::endl;
-    }
+    std::vector<std::vector<double>> X = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    MMatrix<double> A(X);
+    std::cout << "A = " << std::endl;
+    A.print();
+    std::cout << "A^T = " << std::endl;
+    A.transpose().print();
+    std::cout << "det(A)=" << std::endl;
+    std::cout << A.det() << std::endl;
     return 0;
 }
